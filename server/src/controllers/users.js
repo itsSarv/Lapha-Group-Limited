@@ -3,4 +3,4 @@ const registerNewUser = (req, res)=>{
         msg:"registered succesfully"
     })
 }
-module.exports = registerNewUser
+module.exports = {registerNewUser}
