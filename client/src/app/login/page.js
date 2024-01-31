@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const login = () => {
   return (
@@ -35,9 +36,9 @@ const login = () => {
           <button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg relative mb-2">
             Login
           </button>
-          <button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+          <Link href="/register"><button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
             Register
-          </button>
+          </button></Link>
         </div>
       </div>
     </section>
