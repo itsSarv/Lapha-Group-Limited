@@ -7,6 +7,9 @@ const port = process.env.PORT;
 const connection = require("./db/connection");
 connection();
 
+const cors = require('cors')
+app.use(cors())
+
 const userRoute = require("./routes/user");
 app.use(userRoute);
 
