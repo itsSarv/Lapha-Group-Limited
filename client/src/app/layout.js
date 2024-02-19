@@ -15,11 +15,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+      <Providers>
         <ToastContainer
-        position="bottom-left"
+        position="bottom-right"
+        theme="dark"
         autoClose = {2000}
         />
-        <Providers>{children}</Providers>
+        {children}
+        </Providers>
       </body>
     </html>
   );
