@@ -1,7 +1,9 @@
+const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const jwt = require('jsonwebtoken');
 
-const User = require('../models/user')
+
 const registerNewUser = async (req, res)=>{
     try{
         const existinguser = await User.findOne({email: req.body.email})
@@ -39,8 +41,12 @@ const loginUser = async(req,res)=>{
                 msg: "Email or Password Incorrect"
         })
         }
+
+        //adding jwt token when user found
+        const token = jwt.sign({email: req.body.email }, 'secrectkey');
         res.json({
-            msg: "Login Successful"
+            msg: "Login Successful",
+            token
         })
        
     }
