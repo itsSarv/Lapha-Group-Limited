@@ -28,15 +28,15 @@ const registerNewUser = async (req, res)=>{
 const loginUser = async(req,res)=>{
     try{
         //finding email in our database
-        const useremail = await User.findOne({email: req.body.email}).select("+password");
-        if(!useremail){
+        const userDetails = await User.findOne({email: req.body.email}).select("+password");
+        if(!userDetails){
             return res.status(403).json({
                 msg: "Email or Password Incorrect"
             })}
 
        // comparing the hash password
-        const userpass = await bcrypt.compare(req.body.password, useremail.password)
-        if(!userpass){
+        const match = await bcrypt.compare(req.body.password, userDetails.password)
+        if(!match){
             return res.status(403).json({
                 msg: "Email or Password Incorrect"
         })
@@ -46,13 +46,13 @@ const loginUser = async(req,res)=>{
         const token = jwt.sign({email: req.body.email }, 'secrectkey');
         res.json({
             msg: "Login Successful",
-            token
+            token,
+            userDetails
         })
-       
     }
     catch(err){
         return res.status(500).json({
-            msg: "Server Couldn't Load"
+            msg: "Server Error"
         })
     }
 }

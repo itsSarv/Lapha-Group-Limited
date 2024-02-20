@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import boxSlice from './reducerSlice/userSlice'
+import userSlice from './reducerSlice/userSlice'
+import logger from 'redux-logger'
 
 export default configureStore({
   reducer: {
-    box: boxSlice
+    user: userSlice
   },
+  middleware :()=> [logger]
 });

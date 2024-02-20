@@ -8,9 +8,12 @@ import { useFormik} from 'formik';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation'
+import { addUserDetails } from "@/redux/reducerSlice/userSlice";
+import { useDispatch } from "react-redux";
 
 const LoginForm =()=>{
 const router = useRouter()
+const dispatch = useDispatch()
 const LoginSchema = Yup.object().shape({
   email: Yup.string().required('Email is required'),
   password: Yup.string().required('Password is required'),
@@ -24,6 +27,7 @@ const loginUser = async(values)=> {
    })
    const data = await res.json()
    if(res.status == 200) {
+     dispatch(addUserDetails(data))
      router.push('/home')
    }
    toast(data.msg)

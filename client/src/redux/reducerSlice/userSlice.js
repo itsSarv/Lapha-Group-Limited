@@ -1,32 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    width: 30,
-    height:30,
-    backgroundColor: 'black',
-    borderRadius: '0%'
+    userDetails : {},
+    token:'',
+    isLoggedIn: false
 }
 
-export const boxSlice = createSlice({
-  name: 'box',
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    changecolor: (state, action)=>{
-      if(!action.payload){
-        state.backgroundColor = 'black'
+      addUserDetails: (state, action)=>{
+        const {userDetails, token} = action.payload
+        return{
+          ...state,
+          isLoggedIn:true,
+          userDetails,
+          token
+        }
       }
-      else{
-      state.backgroundColor = action.payload}
-    },
-    changeshape: (state, action)=>{
-      if(state.borderRadius == '0%'){
-      state.borderRadius  = '50%'}
-      else{
-        state.borderRadius = '0%'
       }
-    }
-  },
 });
 
-export const { changecolor,changeshape } = boxSlice.actions;
-export default boxSlice.reducer;
+export const {addUserDetails} = userSlice.actions;
+export default userSlice.reducer;
