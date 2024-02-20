@@ -29,8 +29,9 @@ const loginUser = async(values)=> {
    if(res.status == 200) {
      dispatch(addUserDetails(data))
      router.push('/home')
-   }
+   }else{
    toast(data.msg)
+   }
   }
 
 const formik = useFormik({

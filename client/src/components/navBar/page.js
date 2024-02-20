@@ -13,8 +13,19 @@ import {
   Avatar,
 } from "@nextui-org/react";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { logout } from "@/redux/reducerSlice/userSlice";
+import { useRouter } from 'next/navigation'
+
 
 const page = () => {
+  const router = useRouter()
+  const dispatch = useDispatch()
+  const logoutUser = ()=>{
+    dispatch(logout())
+    router.push('/login')
+  }
+
   return (
     <div>
       <Navbar>
@@ -67,7 +78,7 @@ const page = () => {
               <DropdownItem key="help_and_feedback">
                 Help & Feedback
               </DropdownItem>
-              <DropdownItem key="logout" color="danger">
+              <DropdownItem onClick={logoutUser} key="logout" color="danger">
                 Log Out
               </DropdownItem>
             </DropdownMenu>
