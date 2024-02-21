@@ -28,14 +28,14 @@ const page = () => {
 
   return (
     <div>
-      <Navbar>
-        <Image src="/laphagroup.png" width="50" height="50" />
-        <NavbarBrand>
-          <p className="font-bold text-inherit"> LAPHA GROUP LIMITED</p>
+      <Navbar className="justify-start">
+        <NavbarBrand >
+        <Image src="/laphagroup.png" width="50" height="50"  />
+          <p className="font-bold text-inherit ml-6"> LAPHA GROUP LIMITED</p>
         </NavbarBrand>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem>
+        <NavbarContent className="hidden sm:flex gap-4 " justify="center">
+          {/* <NavbarItem>
             <Link color="foreground" href="#">
               ABOUT US
             </Link>
@@ -49,7 +49,7 @@ const page = () => {
             <Link color="foreground" href="#">
               Integrations
             </Link>
-          </NavbarItem>
+          </NavbarItem> */}
         </NavbarContent>
 
         <NavbarContent as="div" justify="end">

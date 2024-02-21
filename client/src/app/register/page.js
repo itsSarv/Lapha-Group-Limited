@@ -95,11 +95,9 @@ const formik = useFormik({
           <Button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg relative mb-2">
             Register
           </Button>
-          <Link href="/login">
-            <Button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+            <Button onClick={()=>router.push('/')} className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
             Login
           </Button>
-          </Link>
         </div>
       </div>
     </section>

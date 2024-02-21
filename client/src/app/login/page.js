@@ -1,7 +1,6 @@
 'use client'
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {Input,Button} from "@nextui-org/react";
 import * as Yup from 'yup';
 import { useFormik} from 'formik';
@@ -85,11 +84,9 @@ const formik = useFormik({
           <Button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg relative mb-2">
             Login
           </Button>
-          <Link href="/register">
-            <Button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+            <Button onClick={()=>router.push('/register')} className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
             Register
           </Button>
-          </Link>
         </div>
       </div>
     </section>
