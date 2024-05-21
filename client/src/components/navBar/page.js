@@ -43,14 +43,14 @@ const page = () => {
               isBordered
               as="button"
               className="transition-transform"
-              color="secondary"
+              color="white"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src="/laphagroup.png"
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
+            {/* <DropdownItem key="profile" className="h-14 gap-2">
               <p className="font-semibold">Signed in as</p>
               <p className="font-semibold">zoey@example.com</p>
             </DropdownItem>
@@ -58,8 +58,8 @@ const page = () => {
             <DropdownItem key="team_settings">Team Settings</DropdownItem>
             <DropdownItem key="analytics">Analytics</DropdownItem>
             <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+            <DropdownItem key="configurations">Configurations</DropdownItem>*/}
+            <DropdownItem key="Admin Pannel" >Admin Pannel</DropdownItem> 
             <DropdownItem key="logout" color="danger" onClick={logoutUser}>
               Log Out
             </DropdownItem>
@@ -78,6 +78,23 @@ const page = () => {
         <Image src='/laphagroup.png' width='50' height='50'/>
           <p className="hidden sm:block font-bold text-inherit">Lapha Group</p>
         </NavbarBrand>
+        <NavbarContent className="hidden sm:flex gap-7">
+          <NavbarItem >
+            <Link color="foreground" href="#">
+              Mens
+            </Link>
+          </NavbarItem>
+          <NavbarItem >
+            <Link href="#" color="foreground">
+              Womens
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Kids
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
       </NavbarContent>
 
       <NavbarContent as="div" className="items-center" justify="end">
