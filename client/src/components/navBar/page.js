@@ -15,7 +15,7 @@ import {
   Input,
 } from "@nextui-org/react";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/redux/reducerSlice/userSlice";
 import { useRouter } from 'next/navigation'
 
@@ -23,36 +23,21 @@ import { useRouter } from 'next/navigation'
 const page = () => {
   const router = useRouter()
   const dispatch = useDispatch()
+
   const logoutUser = ()=>{
     dispatch(logout())
-    router.push('/login')
   }
 
-  return (
-    <div>      
-        <Navbar isBordered>
-      <NavbarContent justify="start">
-        <NavbarBrand className="mr-4">
-        <Image src='/laphagroup.png' width='50' height='50'/>
-          <p className="hidden sm:block font-bold text-inherit">Lapha Group</p>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent as="div" className="items-center" justify="end">
-        <Input
-          classNames={{
-            base: "max-w-full sm:max-w-[10rem] h-10",
-            mainWrapper: "h-full",
-            input: "text-small",
-            inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-          }}
-          placeholder="Type to search..."
-          size="sm"
-          type="search"
-        />
-        <Button color='secondary' onClick={()=>router.push('/login')} >Login</Button>
+  const LoginLogoutbtn = ()=>{
+    return( 
+    <> 
+        <Button color='secondary' onClick={()=>router.push('/login')} >Login</Button> 
         <Button color="warning" onClick={()=>router.push('/register')} >Register</Button>
-        <Dropdown placement="bottom-end">
+        </>)
+  }
+  const LoggedIndrop = ()=>{
+    return( 
+    <Dropdown placement="bottom-end">
           <DropdownTrigger>
             <Avatar
               isBordered
@@ -75,11 +60,40 @@ const page = () => {
             <DropdownItem key="system">System</DropdownItem>
             <DropdownItem key="configurations">Configurations</DropdownItem>
             <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
+            <DropdownItem key="logout" color="danger" onClick={logoutUser}>
               Log Out
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
+        )
+  }
+  const {isLoggedIn} = useSelector(state=>state.user)
+
+ 
+  return (
+    <div>      
+        <Navbar isBordered>
+      <NavbarContent justify="start">
+        <NavbarBrand className="mr-4">
+        <Image src='/laphagroup.png' width='50' height='50'/>
+          <p className="hidden sm:block font-bold text-inherit">Lapha Group</p>
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent as="div" className="items-center" justify="end">
+      
+        <Input
+          classNames={{
+            base: "max-w-full sm:max-w-[10rem] h-10",
+            mainWrapper: "h-full",
+            input: "text-small",
+            inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+          }}
+          placeholder="Type to search..."
+          size="sm"
+          type="search"
+        />
+        {isLoggedIn? <LoggedIndrop/> : <LoginLogoutbtn/>}
       </NavbarContent>
     </Navbar>
     </div>
