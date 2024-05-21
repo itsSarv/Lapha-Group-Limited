@@ -8,6 +8,7 @@ import { useFormik} from 'formik';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation'
+import Nav from '@/components/navBar/page'
 
 const RegisterForm =()=>{
 const router = useRouter()
@@ -42,9 +43,11 @@ const formik = useFormik({
       }
     });
     return(
+      <div>
+        <Nav/>
       <form onSubmit={formik.handleSubmit}>
       <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap items-center" >
+      <div className="container px-5 py-12 mx-auto flex flex-wrap items-center" >
         <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 m-auto">
           <div className= "m-auto"><Image src="/laphagroup.png" width="100" height="100"/></div>
           <h2 className="text-gray-900 text-lg font-medium title-font mb-5 m-auto">
@@ -95,13 +98,11 @@ const formik = useFormik({
           <Button type="submit" className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg relative mb-2">
             Register
           </Button>
-            <Button onClick={()=>router.push('/')} className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
-            Login
-          </Button>
         </div>
       </div>
     </section>
     </form>
+    </div>
     )
     }
 

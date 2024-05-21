@@ -10,7 +10,6 @@ const userSchema = new Schema({
     unique: true,
     required: "Email address is required",
   },
-  //  isEmailVerified: { type: Boolean, default: false },
   password: {
     type: String,
     required: true,
@@ -22,7 +21,6 @@ const userSchema = new Schema({
     default: "user",
     required: true,
   },
-  // isActive: { type: Boolean, default: true, required: true}
 });
 
 const User = mongoose.model("User", userSchema);
