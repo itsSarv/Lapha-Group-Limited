@@ -6,7 +6,6 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   DropdownItem,
   DropdownTrigger,
   Dropdown,
@@ -18,7 +17,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/redux/reducerSlice/userSlice";
 import { useRouter } from 'next/navigation'
-
+import Link from 'next/link'
 
 const page = () => {
   const router = useRouter()
@@ -47,6 +46,7 @@ const page = () => {
               name="Jason Hughes"
               size="sm"
               src="/laphagroup.png"
+
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
@@ -59,7 +59,7 @@ const page = () => {
             <DropdownItem key="analytics">Analytics</DropdownItem>
             <DropdownItem key="system">System</DropdownItem>
             <DropdownItem key="configurations">Configurations</DropdownItem>*/}
-            <DropdownItem key="Admin Pannel" >Admin Pannel</DropdownItem> 
+            <DropdownItem key="Admin Pannel" onClick={()=>router.push('/admindashboard')}>Admin Pannel</DropdownItem> 
             <DropdownItem key="logout" color="danger" onClick={logoutUser}>
               Log Out
             </DropdownItem>
@@ -75,8 +75,8 @@ const page = () => {
         <Navbar isBordered>
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
-        <Image src='/laphagroup.png' width='50' height='50'/>
-          <p className="hidden sm:block font-bold text-inherit">Lapha Group</p>
+        <Image src='/laphagroup.png' width='50' height='50' onClick={()=>router.push('/home')}/>
+          {/* <p className="hidden sm:block font-bold text-inherit">Lapha Group</p> */}
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-7">
           <NavbarItem >

@@ -1,7 +1,9 @@
 'use client'
 import React from 'react'
 import Nav from '@/components/navBar/page'
-import Sidebar from '@/components/sidebar/page'
+import Footer from '@/components/footer/page'
+
+
 
 const page = () => {
   return (
@@ -93,7 +95,9 @@ const page = () => {
     </div>
   </div>
 </section>
+<Footer/>
  </div>
+
   )
 }
 
