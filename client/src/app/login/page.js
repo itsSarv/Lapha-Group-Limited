@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import Image from "next/image";
-import {Input,Button, Navbar} from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
 import * as Yup from 'yup';
 import { useFormik} from 'formik';
 import { toast } from 'react-toastify';

@@ -75,7 +75,7 @@ const page = () => {
         <Navbar isBordered>
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
-        <Image src='/laphagroup.png' width='50' height='50' onClick={()=>router.push('/home')}/>
+        <Image className="curser-pointer" src='/laphagroup.png' width='50' height='50' onClick={()=>router.push('/home')} />
           {/* <p className="hidden sm:block font-bold text-inherit">Lapha Group</p> */}
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-7">
