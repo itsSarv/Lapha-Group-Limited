@@ -11,7 +11,9 @@ const cors = require('cors')
 app.use(cors())
 
 const userRoute = require("./routes/user");
-app.use(userRoute);
+const productRoute = require("./routes/product")
+app.use(userRoute); 
+app.use(productRoute); 
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

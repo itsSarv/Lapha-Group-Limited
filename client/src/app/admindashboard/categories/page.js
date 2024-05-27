@@ -1,52 +1,93 @@
-import React from 'react'
+'use client'
 import Sidebar from '../sidebar/page'
 import Nav from '@/components/navBar/page'
-import { Input } from '@nextui-org/react'
+import React, { useState } from 'react';
 
+const AddProduct = () => {
+  const [productName, setProductName] = useState('');
+  const [productPrice, setProductPrice] = useState('');
+  const [productDescription, setProductDescription] = useState('');
+  const [productCategory, setProductCategory] = useState('');
+  const [productImage, setProductImage] = useState(null);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    // For example, you might want to send the form data to an API
+    console.log({
+      productName,
+      productPrice,
+      productDescription,
+      productCategory,
+      productImage,
+    });
+  };
 
-const category = () => {
+  const handleImageChange = (e) => {
+    setProductImage(e.target.files[0]);
+  };
+
   return (
     <>
       <Nav/>
     <div className='flex min-h-screen'>
         <Sidebar/>
-        <div className='flex-1 justify-center m-10'>
-
-            <p className='flex justify-center p-5 text-lg'>Add Products</p>
-            <div className="flex w-full flex-wrap md:flex-nowrap gap-4 p-5 ">
-      <Input type="Name" label="Product Name" />
-    </div>
-    <Input
-          type="number"
-          label="Price"
-          placeholder="0.00"
-          labelPlacement="inside"
-          className='p-5 '
-          startContent={
-            <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-small">$</span>
-            </div>
-          }
-        />
-        <div className="flex w-full flex-wrap md:flex-nowrap gap-4 p-5 lg">
-      <Input type="Name" label="Product Description" />
-    </div>
-        <hr></hr>
-        <div className='flex justify-center' >
-      <Form.Select aria-label="Default select example" className='lg flex justify-center'>
-      <option>Select Category</option>
-      <option value="1">Womens</option>
-      <option value="2">Mens</option>
-      <option value="3">Kids</option>
-    </Form.Select>
-    <hr></hr>
-      <Button className=' flex justify-center m-2 bg-orange-300' type="submit">Submit</Button>
-      </div>
+    <div>
+      <h1>Add Product</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            Product Name:
+            <input
+              type="text"
+              value={productName}
+              onChange={(e) => setProductName(e.target.value)}
+              required
+            />
+          </label>
         </div>
+        <div>
+          <label>
+            Product Price:
+            <input
+              type="number"
+              value={productPrice}
+              onChange={(e) => setProductPrice(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Product Description:
+            <textarea
+              value={productDescription}
+              onChange={(e) => setProductDescription(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Category:
+            <select
+              value={productCategory}
+              onChange={(e) => setProductCategory(e.target.value)}
+              required
+            >
+              <option value="">Select a category</option>
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="kids">Kids</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
     </div>
     </>
-  )
-}
+  );
+};
 
-export default category
+export default AddProduct;
