@@ -81,9 +81,9 @@ const products = () => {
       onChange={formik.handleChange}
       value={formik.values.productCategory}>
       <option>Select Category</option>
-      <option value="1">Womens</option>
-      <option value="2">Mens</option>
-      <option value="3">Kids</option>
+      <option value="Womens">Womens</option>
+      <option value="Mens">Mens</option>
+      <option value="Kids">Kids</option>
     </Form.Select>
     <hr></hr>
       <Button className=' flex justify-center m-2 bg-orange-300' type="submit">Submit</Button>
