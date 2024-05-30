@@ -11,7 +11,7 @@ const page = () => {
         <ul>
         <li className='flex justify-start items-center hover:bg-blue-400 hover:text-white rounded-xl p-2'>
             <BiCategory className='mr-2'/>
-            <Link href="/admindashboard/categories">Add Category</Link>
+            <Link href="/admindashboard/productlist">View Products</Link>
           </li>
           <li className='flex justify-start items-center hover:bg-blue-400 hover:text-white rounded-xl p-2'>
             <MdAddShoppingCart className='mr-2'/>
