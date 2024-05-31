@@ -1,93 +1,72 @@
 'use client'
+import React from 'react'
 import Sidebar from '../sidebar/page'
 import Nav from '@/components/navBar/page'
-import React, { useState } from 'react';
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 
-const AddProduct = () => {
-  const [productName, setProductName] = useState('');
-  const [productPrice, setProductPrice] = useState('');
-  const [productDescription, setProductDescription] = useState('');
-  const [productCategory, setProductCategory] = useState('');
-  const [productImage, setProductImage] = useState(null);
+const rows = [
+  {
+    key: "1",
+    name: "Tony Reichert",
+    role: "CEO",
+    status: "Active",
+  },
+  {
+    key: "2",
+    name: "Zoey Lang",
+    role: "Technical Lead",
+    status: "Paused",
+  },
+  {
+    key: "3",
+    name: "Jane Fisher",
+    role: "Senior Developer",
+    status: "Active",
+  },
+  {
+    key: "4",
+    name: "William Howard",
+    role: "Community Manager",
+    status: "Vacation",
+  },
+];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    // For example, you might want to send the form data to an API
-    console.log({
-      productName,
-      productPrice,
-      productDescription,
-      productCategory,
-      productImage,
-    });
-  };
+const columns = [
+  {
+    key: "name",
+    label: "NAME",
+  },
+  {
+    key: "role",
+    label: "ROLE",
+  },
+  {
+    key: "status",
+    label: "STATUS",
+  },
+];
 
-  const handleImageChange = (e) => {
-    setProductImage(e.target.files[0]);
-  };
-
+const productlist = () => {
   return (
-    <>
-      <Nav/>
-    <div className='flex min-h-screen'>
-        <Sidebar/>
     <div>
-      <h1>Add Product</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Product Name:
-            <input
-              type="text"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Product Price:
-            <input
-              type="number"
-              value={productPrice}
-              onChange={(e) => setProductPrice(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Product Description:
-            <textarea
-              value={productDescription}
-              onChange={(e) => setProductDescription(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Category:
-            <select
-              value={productCategory}
-              onChange={(e) => setProductCategory(e.target.value)}
-              required
-            >
-              <option value="">Select a category</option>
-              <option value="men">Men</option>
-              <option value="women">Women</option>
-              <option value="kids">Kids</option>
-            </select>
-          </label>
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
-    </div>
-    </div>
-    </>
-  );
-};
+    <Nav/>
+  <div className='flex justify-start min-h-screen '>
+      <Sidebar/>
+      <Table>
+      <TableHeader columns={columns}>
+        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+      </TableHeader>
+      <TableBody items={rows}>
+        {(item) => (
+          <TableRow key={item.key}>
+            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  </div>
+  </div>
+  
+)}
 
-export default AddProduct;
+export default productlist

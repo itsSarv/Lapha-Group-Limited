@@ -22,10 +22,11 @@ const page = () => {
     
   <div>
     <Nav/>
-
+    <div className="gap-4 grid grid-cols-2 sm:grid-cols-4 px-5 py-5 mx-auto">
       {productlist.length>0 && productlist.map((item)=>{
-         return <Cardlist item = {item}/>
+         return <Cardlist  item = {item}/>
       })}
+      </div>
 <Footer/>
  </div>
 
