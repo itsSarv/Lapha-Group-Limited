@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../sidebar/page'
 import Nav from '@/components/navBar/page'
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
@@ -38,15 +38,27 @@ const columns = [
   },
   {
     key: "role",
-    label: "ROLE",
+    label: "PRICE",
   },
   {
     key: "status",
-    label: "STATUS",
+    label: "Category",
   },
 ];
 
-const productlist = () => {
+const productlist = (props) => {
+  const [productlist, setproductlist] = useState([])
+  const fetchproducts= async()=>{
+    const response = await fetch('http://localhost:5000/product')
+    const data = await response.json()
+     setproductlist(data.productlist)
+  
+  }
+
+  useEffect ( ()=>{
+      fetchproducts()
+  },[])
+  
   return (
     <div>
     <Nav/>
