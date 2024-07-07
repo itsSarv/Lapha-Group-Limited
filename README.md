@@ -1,37 +1,52 @@
-Employee Share Management System
+https://user-images.githubusercontent.com/102798814/185803808-cfc2fd12-aaae-454d-b25b-810481ffa4f5.mp4
 
-Employee Share Management system is a web application that enables users to create,store and manage Employee Share Records
+# Clothify
 
-- It is a management system that helps to manage employees.
-- Employee Share management system can manage and store details like employees personal info.
+This application is a classic clothes sales app. People can buy somethings and write reviews about them. 
+They can add favorites if they like. they can track their active orders and view order history. 
+Admin can add, edit and remove new categories and products and  edit ads and banners on the homepage.
 
-This web application contains three account access:
+## Built with
 
-- Admin
-- Employee
-  
-  All Two accounts contain different privileges and authentication.
+- [React](https://reactjs.org/) - Javascript Library For UI
 
-Technology used :
+- [Javascript](https://www.javascript.com/) - Main Language
 
-- [Next.js]------>[https://nextjs.org/]
-- [React.js]----->[https://react.dev/]
-- [Node.js]------>[https://nodejs.org/en]
-- [Express.js]--->[https://expressjs.com/]
-- [Mongo DB]----->[https://mongoosejs.com/]
+- [NodeJS](https://nodejs.org/en/) - Server Environment
+
+- [Expressjs](https://expressjs.com/) - NodeJS Framework For Server Processes
+
+- [MongoDB](https://www.mongodb.com/) - NOSQL Database
+
+- [Mongoose](https://mongoosejs.com/) - Database ORM
+
+- [Formik](https://formik.org/) - React Form Library
+
+- [Yup](https://www.npmjs.com/package/yup) - For Validations
+
+- [React Cookie](https://www.npmjs.com/package/react-cookie) - For Cookies
+
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs) - For Encryption
+
+- [MUI Icons](https://mui.com/material-ui/material-icons/) - Icons
 
 
-The different part or module of this project is as follows:
+## Getting Started
 
-- Login Page
-- Admin Dashboard
-- Employee Dashboard
-- Authentication and authorization(user verification)
-- Database(MongoDB)
+Clone the repository
 
-How to run this project in a local development machine
-Make sure you install node modules in both frontend and backend using npm install command
-create .env file in your backend project Example of .env file (this file is present with the name .envexample):
-PORT=5000
+```
+git clone https://github.com/AhmedSemih/MERN-Stack-eCommerce-App.git
+```
 
-run both projects with the npm run dev command
+After getting the starter files, you must to go both file directories and run
+
+```
+npm install
+```
+
+You must assign environment variables for both and start the dev server
+
+```
+npm start
+```
